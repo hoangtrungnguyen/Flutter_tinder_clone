@@ -11,7 +11,6 @@ class _ContentState extends State<Content> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.bottomLeft,
       padding: EdgeInsets.all(8),
       width: MediaQuery.of(context).size.width - 16,
       height: MediaQuery.of(context).size.height / 4 * 3,
@@ -30,104 +29,40 @@ class _ContentState extends State<Content> {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      Text(
-                        "Thuỷ Tiên",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 36,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 16),
-                        child: Text(
-                          "24",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 30,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Image.asset("assets/icons8-suitcase-60.png", scale: 3),
-                      Padding(
-                        padding: EdgeInsets.only(left: 16),
-                        child: Text(
-                          "Giáo viên tiểu học",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Image.asset("assets/icons8-mortarboard-60.png", scale: 3),
-                      Padding(
-                        padding: EdgeInsets.only(left: 16),
-                        child: Text(
-                          "Trường đại học Sư Phạm Hà Nội",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Image.asset("assets/icons8-marker-60.png", scale: 3),
-                      Padding(
-                        padding: EdgeInsets.only(left: 16),
-                        child: Text(
-                          "2 kilometers away",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 8),
-                child: Container(
-                  decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Image.asset("assets/icons8-information-60.png", color: Colors.black87, scale: 2.5),
-                  )),
-              ),
-            ],
+      child: Align(
+        alignment: Alignment(0, 1),
+        child: ListTile(
+          title: Text(
+            "Thuỷ Tiên 24",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 33,
+            ),
           ),
-
-        ],
+          subtitle: DefaultTextStyle(
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text("Giáo viên tiểu học"),
+                    Text("Trường đại học Sư Phạm Hà Nội"),
+                    Text("2 kilometers away")
+                  ],
+                ),
+                Spacer(),
+                Image.asset("assets/icons8-information-60.png", color: Colors.black87, scale: 2.5),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
